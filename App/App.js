@@ -16,12 +16,8 @@ import Card from './Components/cards';
 import {blue} from 'chalk';
 import Step1 from './Screens/Step1.js';
 import Step2 from './Screens/Step2';
-import Step3 from './Screens/Step3';
-import Step4 from './Screens/Step4';
-import Step5 from './Screens/step5';
 import Step6 from './Screens/Step6';
-import Step7 from './Screens/Step7';
-import Step8 from './Screens/Step8';
+
 
 const App = props => {
   const [secondstepActive, setsecondStepActive] = useState(true);
@@ -78,7 +74,7 @@ const App = props => {
           <Text style={styles.buttonText}>Start App Tour</Text>
         </TouchableOpacity>
       </View>
-      <Step2 />
+      <Step6/>
     </View>
   );
 };
