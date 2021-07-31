@@ -17,12 +17,16 @@ import {blue} from 'chalk';
 import Step1 from './Screens/Step1.js';
 import Step2 from './Screens/Step2';
 import Step6 from './Screens/Step6';
+import Step6_starter from './Screens/Step6_starter';
+import Step8_readmore from './Screens/Step8_readmore';
+import Step9_starter from './Screens/Step9_starter';
 
 
 const App = props => {
   const [secondstepActive, setsecondStepActive] = useState(true);
   const WalkthroughableText = walkthroughable(Text);
   const WalkthroughableImage = walkthroughable(Image);
+  const [step2,setstep2] = useState(false);
 
   useEffect(() => {
     props.copilotEvents.on('stepChange', handleStepChange);
@@ -31,6 +35,9 @@ const App = props => {
   const handleStepChange = step => {
     console.log(`handle step change: ${step.name}`);
   };
+  const activateStep2 = ()=>{
+    setstep2("add-step");
+  }
   return (
     <View style={styles.container}>
       <View style={styles.containers}></View>
@@ -46,7 +53,9 @@ const App = props => {
         order={2}
         name="fourthuniqueKey"
         active={secondstepActive}>
-        <Card />
+        <TouchableOpacity onPress={activateStep2}>
+          <Card />
+        </TouchableOpacity>
       </CopilotStep>
       <CopilotStep text="heading" order={1} name="firstUniqueKey">
         <WalkthroughableText
@@ -74,7 +83,8 @@ const App = props => {
           <Text style={styles.buttonText}>Start App Tour</Text>
         </TouchableOpacity>
       </View>
-      <Step6/>
+      {!step2 && <Step1 />}
+      {step2 && <Step2 />}
     </View>
   );
 };
@@ -92,11 +102,11 @@ export default copilot({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E5E5E5',
+    backgroundColor: 'rgba(0, 10, 49, 0.79)',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  
+
   middleView: {flex: 1, alignItems: 'center'},
   button: {
     backgroundColor: '#2980b9',

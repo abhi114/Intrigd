@@ -211,53 +211,153 @@ const Step7readMore = () =>{
 }
 
 const Step8 = () => {
+  const [state, setState] = useState(false);
+  const [step9state,setNextState] = useState(false);
+  const triggerStep9Comp = ()=>{
+    setNextState('step9_state');
+  }
+  const triggerNextComp = () => {
+    setState('set-state');
+  };
   return (
-    <View style={styles2.card}>
-      <View style={styles2.textbox}>
-        <Text style={[styles2.cardText, {fontFamily: Fonts.regular}]}>
-          Every Article has a{' '}
-          <Text
-            style={{
-              fontWeight: 'bold',
-            }}>
-            Complexity
-          </Text>{' '}
-          parameter that indicates how{' '}
-          <Text
-            style={{
-              fontFamily: Fonts.sbi,
-            }}>
-            complex
-          </Text>{' '}
-          the article is for a general-purpose consumption
-        </Text>
-      </View>
-      <View style={styles2.Next}>
-        <View style={styles2.NextBox}>
-          <Text style={styles2.Nexttitle}>Next</Text>
-        </View>
-      </View>
-      <View style={styles2.readmore}>
+    
+    <React.Fragment>
+      {(!state || !step9state) && (
+      <View style={styles2.card}>
         <View style={styles2.textbox}>
-          <Text style={styles2.title}>Read More</Text>
+          <Text style={[styles2.cardText, {fontFamily: Fonts.regular}]}>
+            Every Article has a{' '}
+            <Text
+              style={{
+                fontWeight: 'bold',
+              }}>
+              Complexity
+            </Text>{' '}
+            parameter that indicates how{' '}
+            <Text
+              style={{
+                fontFamily: Fonts.sbi,
+              }}>
+              complex
+            </Text>{' '}
+            the article is for a general-purpose consumption
+          </Text>
         </View>
-      </View>
-      <View style={styles2.circle}>
-        <View style={styles2.circleTextBox}>
-          <Text style={styles2.circleText}>1</Text>
+        <View style={styles2.Next} onStartShouldSetResponder = {triggerStep9Comp}>
+          <View style={styles2.NextBox}>
+            <Text style={styles2.Nexttitle}>Next</Text>
+          </View>
         </View>
-      </View>
-      <View style={styles2.lineView}></View>
-      <View style={styles2.lineView2}></View>
-      <View style={styles2.circlefaint}>
-        <View style={styles2.circleTextBox}>
-          <Text style={styles2.circleTextfaint}>2</Text>
+        <View style={styles2.readmore} onStartShouldSetResponder={triggerNextComp}>
+          <View style={styles2.textbox}>
+            <Text style={styles2.title}>Read More</Text>
+          </View>
         </View>
-      </View>
-      <View style={[styles2.circlefaint2, {left: '67.5%'}]}>
-        <View style={styles2.circleTextBox}>
-          <Text style={styles2.circleTextfaint2}>3</Text>
+        <View style={styles2.circle}>
+          <View style={styles2.circleTextBox}>
+            <Text style={styles2.circleText}>1</Text>
+          </View>
         </View>
+        <View style={styles2.lineView}></View>
+        <View style={styles2.lineView2}></View>
+        <View style={styles2.circlefaint}>
+          <View style={styles2.circleTextBox}>
+            <Text style={styles2.circleTextfaint}>2</Text>
+          </View>
+        </View>
+        <View style={[styles2.circlefaint2, {left: '67.5%'}]}>
+          <View style={styles2.circleTextBox}>
+            <Text style={styles2.circleTextfaint2}>3</Text>
+          </View>
+        </View>
+      </View>)}
+      {state && <Step8_readmore/>}
+      {step9state && <Step9_starter/>}
+    </React.Fragment>
+  );
+};
+
+const Step8_readmore = () => {
+  const [state, setState] = useState(false);
+  const triggerNextComp = () => {
+    setState('set-state');
+  };
+
+  return (
+    <React.Fragment>
+      {!state && (
+        <View style={Step8_styles_readmore.card}>
+          <View style={Step8_styles_readmore.textbox}>
+            <Text
+              style={[
+                Step8_styles_readmore.cardText,
+                {fontFamily: Fonts.regular},
+              ]}>
+              Every Article has a{' '}
+              <Text
+                style={{
+                  fontWeight: 'bold',
+                }}>
+                Complexity
+              </Text>{' '}
+              parameter that indicates how{' '}
+              <Text
+                style={{
+                  fontFamily: Fonts.sbi,
+                }}>
+                complex
+              </Text>{' '}
+              the article is for a general-purpose consumption. Complexity is
+              decided based on{' '}
+              <Text
+                style={{
+                  fontFamily: Fonts.sbi,
+                }}>
+                verbosity, language and reasonings
+              </Text>{' '}
+              of an article.
+            </Text>
+          </View>
+          <View
+            style={Step8_styles_readmore.Next} onStartShouldSetResponder={triggerNextComp}>
+            <View style={Step8_styles_readmore.NextBox}>
+              <Text style={Step8_styles_readmore.Nexttitle}>Next</Text>
+            </View>
+          </View>
+          <View style={Step8_styles_readmore.circle}>
+            <View style={Step8_styles_readmore.circleTextBox}>
+              <Text style={Step8_styles_readmore.circleText}>1</Text>
+            </View>
+          </View>
+          <View style={Step8_styles_readmore.lineView}></View>
+          <View style={Step8_styles_readmore.lineView2}></View>
+          <View style={Step8_styles_readmore.circlefaint}>
+            <View style={Step8_styles_readmore.circleTextBox}>
+              <Text style={Step8_styles_readmore.circleTextfaint}>2</Text>
+            </View>
+          </View>
+          <View style={[Step8_styles_readmore.circlefaint2, {left: '67.5%'}]}>
+            <View style={Step8_styles_readmore.circleTextBox}>
+              <Text style={Step8_styles_readmore.circleTextfaint2}>3</Text>
+            </View>
+          </View>
+        </View>
+      )}
+      {state && <Step9_starter/>}
+    </React.Fragment>
+  );
+};
+
+const Step9_starter = () => {
+  return (
+    <View style={Step9_start.card}>
+      <Image
+        source={require('../Assets/Icons/information.png')}
+        style={Step9_start.image}></Image>
+      <View style={Step9_start.textbox}>
+        <Text style={[Step9_start.cardText, {fontFamily: Fonts.regular}]}>
+          Tap arrow to change <Text style={{fontWeight: 'bold'}}>Opinion</Text>.
+        </Text>
       </View>
     </View>
   );
@@ -760,6 +860,178 @@ const styles2 = StyleSheet.create({
     textAlign: 'center',
     fontFamily: Fonts.regular,
     fontSize: width / 28.5,
+  },
+});
+
+const Step8_styles_readmore = StyleSheet.create({
+  card: {
+    flex: 1,
+    position: 'absolute',
+    bottom: 0,
+    borderRadius: 10,
+    elevation: 3,
+    backgroundColor: '#FBF8FF',
+    shadowOffset: {width: 1, height: 1},
+    shadowColor: '#333',
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    marginHorizontal: 4,
+    marginVertical: 6,
+    width,
+    height: '28.56%',
+  },
+  textbox: {
+    justifyContent: 'center',
+    alignSelf: 'center',
+    top: '7.87%',
+    paddingLeft: '3.17%',
+    paddingRight: '3.17%',
+  },
+  cardText: {
+    fontSize: width / 23.87,
+    textAlign: 'center',
+    fontWeight: '400',
+  },
+
+  Nexttitle: {
+    textAlign: 'center',
+    fontFamily: Fonts.regular,
+    fontSize: width / 28.5,
+    color: '#ffff',
+    fontWeight: '600',
+  },
+  Next: {
+    width: '16.42%',
+    height: '12.3%',
+    backgroundColor: '#2C324A',
+    position: 'absolute',
+    borderColor: '#2C324A',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    top: '80.47%',
+    left: '79.9%',
+  },
+  NextBox: {
+    top: '7.6%',
+  },
+  circle: {
+    width: '4.83%',
+    height: '8.5%',
+    position: 'absolute',
+    borderRadius: width / 2,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    backgroundColor: '#F14336',
+    top: '66.6%',
+    left: '27.5%',
+  },
+  circleText: {
+    color: '#fff',
+    fontSize: width / 35.75,
+  },
+  circleTextBox: {
+    alignSelf: 'center',
+  },
+  lineView: {
+    position: 'absolute',
+    height: '1.5%',
+    width: '15.2%',
+    borderBottomColor: '#F14336',
+    borderBottomWidth: 2,
+    left: '32.3%',
+    top: '70.4%',
+  },
+  lineView2: {
+    position: 'absolute',
+    height: '1.5%',
+    width: '15.2%',
+    borderBottomColor: '#F14336',
+    borderBottomWidth: 2,
+    left: '52.3%',
+    top: '70.4%',
+  },
+  circlefaint: {
+    width: '4.83%',
+    height: '8.5%',
+    position: 'absolute',
+    borderRadius: width / 2,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    backgroundColor: '#F14336',
+    top: '66.6%',
+    left: '47.5%',
+  },
+  circleTextfaint: {
+    color: '#FFF',
+    fontSize: width / 35.75,
+  },
+  circlefaint2: {
+    width: '4.83%',
+    height: '8.5%',
+    position: 'absolute',
+    borderRadius: width / 2,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    backgroundColor: '#F14336',
+    top: '66.6%',
+  },
+  circleTextfaint2: {
+    color: '#FFF',
+    fontSize: width / 35.75,
+  },
+});
+
+const Step9_start = StyleSheet.create({
+  card: {
+    flex: 1,
+    position: 'absolute',
+    bottom: 0,
+    borderRadius: 10,
+    elevation: 3,
+    backgroundColor: '#FBF8FF',
+    shadowOffset: {width: 1, height: 1},
+    shadowColor: '#333',
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    marginHorizontal: 4,
+    marginVertical: 6,
+    width,
+    height: '24.86%',
+  },
+  textbox: {
+    justifyContent: 'center',
+    alignSelf: 'center',
+    top: '50.5%',
+    paddingLeft: '2.17%',
+    paddingRight: '2.17%',
+  },
+  cardText: {
+    fontSize: width / 23,
+    textAlign: 'center',
+  },
+
+  imageContainer: {
+    flexDirection: 'row',
+  },
+  image: {
+    position: 'absolute',
+    left: '44.2%',
+    top: '19.3%',
+    width: '11.3%',
+    height: '25.6%',
+    resizeMode: 'contain',
+  },
+  skipbox: {
+    width,
+    height: '12.02%',
+    top: '57.96%',
+    left: '85.9%',
+  },
+  skipText: {
+    fontFamily: Fonts.regular,
+    fontWeight: '400',
+    fontSize: 16,
   },
 });
 
