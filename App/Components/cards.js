@@ -1,8 +1,10 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import {copilot, CopilotStep} from 'react-native-copilot';
 
 export default function cards({copilot}) {
+    const [state,setState] = useState({})
+    
     return (
       <View {...copilot} style={styles.card}>
         <View style={styles.cardContent}>
@@ -19,8 +21,8 @@ const styles = StyleSheet.create({
     card:{
         borderRadius:6,
         elevation: 3,
-        backgroundColor:'#fff',
         shadowOffset: {width:1,height:1},
+        backgroundColor:'#fff',
         shadowColor:'#333',
         shadowOpacity:0.3,
         shadowRadius: 2,

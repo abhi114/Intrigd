@@ -3,22 +3,23 @@ import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
 import Fonts from '../Theme/Fonts';
 const {width, height} = Dimensions.get('screen');
 
-const Step9_starter = () => {
+const Step9_mid = () => {
   return (
-    <View style={Step9_start.card}>
+    <View style={Step9_mid_style.card}>
       <Image
         source={require('../Assets/Icons/information.png')}
-        style={Step9_start.image}></Image>
-      <View style={Step9_start.textbox}>
-        <Text style={[Step9_start.cardText, {fontFamily: Fonts.regular}]}>
-          Tap arrow to change <Text style={{fontWeight:'bold'}}>Opinion</Text>.
+        style={Step9_mid_style.image}></Image>
+      <View style={Step9_mid_style.textbox}>
+        <Text style={[Step9_mid_style.cardText, {fontFamily: Fonts.regular}]}>
+          Tap on the (i) button to know more about{' '}
+          <Text style={{fontWeight: 'bold'}}>Article Summary.</Text>
         </Text>
       </View>
     </View>
   );
 };
 
-const Step9_start = StyleSheet.create({
+const Step9_mid_style = StyleSheet.create({
   card: {
     flex: 1,
     position: 'absolute',
@@ -71,4 +72,4 @@ const Step9_start = StyleSheet.create({
   },
 });
 
-export default Step9_starter;
+export default Step9_mid;

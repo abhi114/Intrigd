@@ -293,7 +293,7 @@ const Step8_readmore = () => {
                 Step8_styles_readmore.cardText,
                 {fontFamily: Fonts.regular},
               ]}>
-              Every Article has a{' '}
+              Every Article has a{' '} 
               <Text
                 style={{
                   fontWeight: 'bold',

@@ -1,74 +1,53 @@
-import React, {Component,useState} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Dimensions,
-  Image,
-  ImageBackground,
-  Button,
-  Alert,
-  AppRegistry,
-  
-} from 'react-native';
-import {copilot, CopilotStep} from 'react-native-copilot';
-import cards from '../Components/cards';
-
+import React,{useState} from 'react';
+import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
 import Fonts from '../Theme/Fonts';
-
 const {width, height} = Dimensions.get('screen');
 
-
-
-const Step2 = () => {
-  const [state, setstate] = useState(false)
+const Step10 = () => {
+  const [state, setstate] = useState(false);
   const [nextState, setNextState] = useState(false);
   const triggerNextComp = () => {
     setNextState('add-read-more');
   };
-  const triggerSetComp = ()=>{
-    
-    setstate('add-comp')
-    
-  }
-  
+  const triggerSetComp = () => {
+    setstate('add-comp');
+  };
+
   return (
     <React.Fragment>
       {(!state || !nextState) && (
-        <View style={styles.card}>
-          <View style={styles.textbox}>
-            <Text style={[styles.cardText, {fontFamily: Fonts.regular}]}>
-              This section showcase the overall{' '}
-              <Text style={{fontWeight: 'bold'}}>Topic</Text>.A{' '}
-              <Text style={{fontWeight: 'bold'}}>Topic</Text> usually is a mix
-              of a fact and its{' '}<Text style={{fontWeight: 'bold',fontStyle:'italic'}}>
-                 implications/reasoning/oucomes</Text> 
-              ...
+        <View style={styles10.card}>
+          <View style={styles10.textbox}>
+            <Text style={[styles10.cardText, {fontFamily: Fonts.regular}]}>
+              The original article is{' '}
+              <Text style={{fontWeight: 'bold'}}>summarized & re-phrased</Text>
+              {' '}below in three-six bullet points.
             </Text>
           </View>
           <View
-            style={styles.readmore}
+            style={styles10.readmore}
             onStartShouldSetResponder={triggerSetComp}>
             <View>
-              <Text style={styles.title}>Read More</Text>
+              <Text style={styles10.title}>Read More</Text>
             </View>
           </View>
 
-          <View style={styles.Next} onStartShouldSetResponder={triggerNextComp}>
+          <View
+            style={styles10.Next}
+            onStartShouldSetResponder={triggerNextComp}>
             <View>
-              <Text style={styles.Nexttitle}>Next</Text>
+              <Text style={styles10.Nexttitle}>Next</Text>
             </View>
           </View>
         </View>
       )}
-      {state && <Step3 />}
-      {nextState && <Step4 />}
+      {state && <Step11/>}
+      {nextState && <Step12/>}
     </React.Fragment>
   );
-  
 };
 
-const Step3 = () => {
+const Step11 = () => {
   const [state, setstate] = useState(false);
   const triggerSetComp = () => {
     setstate('add-comp');
@@ -76,51 +55,48 @@ const Step3 = () => {
   return (
     <React.Fragment>
       {!state && (
-        <View style={styles1.card}>
-          <View style={styles1.textbox}>
-            <Text style={[styles1.cardText, {fontFamily: Fonts.regular}]}>
-              This section showcases the overall{' '}
-              <Text style={{fontWeight: 'bold'}}>Topic</Text>. A{' '}
-              <Text style={{fontWeight: 'bold'}}>Topic</Text> usually is a mix
-              of a fact and its <Text style={{fontWeight: 'bold'}}>Topic</Text>{' '}
-              usually is a mix of a fact and its{' '}
-              <Text style={{fontWeight: 'bold', fontStyle: 'italic'}}>
-                implications/reasoning/oucomes
-              </Text>
-              . It is a broad questioning on current affairs of India and the
-              world with the possibility of multiple{' '}
-              <Text style={{fontWeight: 'bold'}}>Opinions</Text>.
+        <View style={styles11.card}>
+          <View style={styles11.textbox}>
+            <Text style={[styles11.cardText, {fontFamily: Fonts.regular}]}>
+              The original article is{' '}
+              <Text style={{fontWeight: 'bold'}}>summarized & re-phrased</Text>{' '}
+              below in three-six bullet points. Each bullet point is represented
+              in the form of an individual
+              <Text style={{fontWeight: 'bold'}}>card.</Text> Only{' '}
+              <Text style={{fontWeight: 'bold'}}>major & important</Text> points
+              that support the Topic & Opinion at hand have been selected. Flow
+              and Coherency have been maintained.
             </Text>
           </View>
-          <View style={styles1.Next} onStartShouldSetResponder={triggerSetComp}>
-            <View style={styles1.NextBox}>
-              <Text style={styles1.Nexttitle}>Next</Text>
+          <View
+            style={styles11.Next}
+            onStartShouldSetResponder={triggerSetComp}>
+            <View style={styles11.NextBox}>
+              <Text style={styles11.Nexttitle}>Next</Text>
             </View>
           </View>
         </View>
       )}
-      {state && <Step4 />}
+      {state && <Step12/>}
     </React.Fragment>
   );
 };
-
-const Step4 = () => {
+const Step12 = () => {
   return (
-    <View style={styles2.card}>
+    <View style={stylesStep12.card}>
       <Image
         source={require('../Assets/Icons/information.png')}
-        style={styles2.image}></Image>
-      <View style={styles2.textbox}>
-        <Text style={[styles2.cardText, {fontFamily: Fonts.regular}]}>
-          Tap to Bookmark Topic
+        style={stylesStep12.image}></Image>
+      <View style={stylesStep12.textbox}>
+        <Text style={[stylesStep12.cardText, {fontFamily: Fonts.regular}]}>
+          Bookmark Article
         </Text>
       </View>
     </View>
   );
 };
 
-
-const styles = StyleSheet.create({
+const styles10 = StyleSheet.create({
   card: {
     flex: 1,
     position: 'absolute',
@@ -140,7 +116,7 @@ const styles = StyleSheet.create({
   textbox: {
     justifyContent: 'center',
     alignSelf: 'center',
-    top: '11.87%',
+    top: '29.87%',
     paddingLeft: '2.17%',
     paddingRight: '2.17%',
   },
@@ -172,7 +148,7 @@ const styles = StyleSheet.create({
     paddingTop: '5%',
     textAlign: 'center',
     fontFamily: Fonts.regular,
-    fontSize: width / 29.5,
+    fontSize: width / 25.5,
     color: '#ffff',
     fontWeight: '600',
   },
@@ -191,9 +167,7 @@ const styles = StyleSheet.create({
   },
 });
 
-
-
-const styles1 = StyleSheet.create({
+const styles11 = StyleSheet.create({
   card: {
     flex: 1,
     position: 'absolute',
@@ -224,10 +198,9 @@ const styles1 = StyleSheet.create({
   },
 
   Nexttitle: {
-    paddingTop:'4%',
     textAlign: 'center',
     fontFamily: Fonts.regular,
-    fontSize: width / 29.5,
+    fontSize: width / 25.5,
     color: '#ffff',
     fontWeight: '600',
   },
@@ -240,7 +213,7 @@ const styles1 = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderStyle: 'solid',
-    top: '82.55%',
+    top: '85.55%',
     left: '79.9%',
   },
   NextBox: {
@@ -248,7 +221,7 @@ const styles1 = StyleSheet.create({
   },
 });
 
-const styles2 = StyleSheet.create({
+const stylesStep12 = StyleSheet.create({
   card: {
     flex: 1,
     position: 'absolute',
@@ -269,6 +242,8 @@ const styles2 = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'center',
     top: '59.5%',
+    paddingLeft: '2.17%',
+    paddingRight: '2.17%',
   },
   cardText: {
     fontSize: width / 23,
@@ -281,11 +256,13 @@ const styles2 = StyleSheet.create({
   image: {
     position: 'absolute',
     left: '44.2%',
-    top: '27.3%',
+    top: '29.3%',
     width: '11.3%',
     height: '25.6%',
     resizeMode: 'contain',
   },
+  
 });
 
-export default Step2;
+
+export default Step10;
