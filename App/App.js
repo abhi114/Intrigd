@@ -82,15 +82,15 @@ const App = props => {
           <Text style={styles.buttonText}>Start App Tour</Text>
         </TouchableOpacity>
       </View>
-      {/*uncomment this for the step 1 and 2 */}
+      {/*uncomment this for the step 1 and 2 layout */}
       {!step2 && <Step1 />}
       {step2 && <Step2 />}
-
-      {/* uncomment this for step 6 starter */}
+      
+      {/* uncomment this for step 6 starter layout*/}
 
       {/*<Step6_starter />*/}
 
-      {/* uncomment this for step 6  */}
+      {/* uncomment this for step 6 layout */}
       {/*
       <Step6 />
       */}

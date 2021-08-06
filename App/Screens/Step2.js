@@ -11,7 +11,7 @@ import {
   AppRegistry,
   
 } from 'react-native';
-import {copilot, CopilotStep} from 'react-native-copilot';
+import {copilot} from 'react-native-copilot';
 import cards from '../Components/cards';
 
 import Fonts from '../Theme/Fonts';
