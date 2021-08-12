@@ -18,6 +18,9 @@ import Step1 from './Screens/Step1.js';
 import Step2 from './Screens/Step2';
 import Step6 from './Screens/Step6';
 import Step6_starter from './Screens/Step6_starter';
+import Step9 from './Screens/Step9';
+import Step9_mid from './Screens/Step9_mid';
+//import Step10 from './Screens/Step10';
 
 
 
@@ -83,17 +86,22 @@ const App = props => {
         </TouchableOpacity>
       </View>
       {/*uncomment this for the step 1 and 2 layout */}
-      {!step2 && <Step1 />}
-      {step2 && <Step2 />}
+      
       
       {/* uncomment this for step 6 starter layout*/}
 
       {/*<Step6_starter />*/}
 
       {/* uncomment this for step 6 layout */}
-      {/*
-      <Step6 />
-      */}
+      
+      
+      {/*<Step9/>*/}
+
+      <Step9_mid/>
+
+
+      
+      
     </View>
   );
 };

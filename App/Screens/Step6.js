@@ -364,7 +364,6 @@ const Step9_starter = () => {
 };
 
 
-
 const styles = StyleSheet.create({
   card: {
     flex: 1,
