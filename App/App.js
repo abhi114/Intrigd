@@ -20,6 +20,7 @@ import Step6 from './Screens/Step6';
 import Step6_starter from './Screens/Step6_starter';
 import Step9 from './Screens/Step9';
 import Step9_mid from './Screens/Step9_mid';
+import Step10 from './Screens/Step10';
 //import Step10 from './Screens/Step10';
 
 
@@ -97,7 +98,7 @@ const App = props => {
       
       {/*<Step9/>*/}
 
-      <Step9_mid/>
+      <Step10/>
 
 
       
